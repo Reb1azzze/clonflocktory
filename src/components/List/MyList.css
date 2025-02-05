@@ -1,0 +1,12 @@
+.my-list {
+    width: 25%;
+    height: 50%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.list-header {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5em;
+}

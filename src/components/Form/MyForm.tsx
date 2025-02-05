@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FormProps } from 'antd';
+import {Button, FormProps} from 'antd';
 import { Form, Input } from 'antd';
 
 type FieldType = {
@@ -21,7 +21,7 @@ const MyForm = () => {
             name="basic"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
+            style={{ }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -41,7 +41,11 @@ const MyForm = () => {
             >
                 <Input />
             </Form.Item>
-
+            <Form.Item label={null}>
+                <Button type="primary" variant="solid" color="cyan" htmlType="submit" style={{width:'100%'}}>
+                    Получить подарок!
+                </Button>
+            </Form.Item>
         </Form>
     );
 };
@@ -50,11 +54,6 @@ const MyForm = () => {
                 <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-              <Form.Item label={null}>
-                <Button type="primary" htmlType="submit">
-                    Отправить
-                </Button>
-            </Form.Item>
 */}
 
 export default MyForm;
