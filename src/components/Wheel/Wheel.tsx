@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import WheelPng from '../../assets/png/wheelfq.png'
+import WheelPng from '../../assets/png/wheel-numbers.png'
 import ArrowPng from '../../assets/png/arrow.png'
 import './Wheel.sass'
 import {Modal} from "antd";

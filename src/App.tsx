@@ -11,7 +11,7 @@ const App: React.FC = () => {
             <Routes>
                 <Route path="/" element={<Wheel/>}/>
                 <Route path="list" element={<MyList/>}/>
-                <Route path="/list/card" element={<Card/>}/>
+                <Route path="/list/card/:id" element={<Card/>}/>
             </Routes>
         </BrowserRouter>
     );

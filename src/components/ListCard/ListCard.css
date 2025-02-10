@@ -1,17 +1,28 @@
 .list-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-items: center;
     cursor: pointer;
+    padding: 14px;
+    background: #ffffff;
+    min-width: 1200px;
+    border-radius: 20px;
+    transition: .2s;
+}
+
+.list-card:hover {
+    background: hsla(0,0%,100%,.3);
 }
 
 .title {
     text-align: center;
     font-size: 2em;
+    min-width: 720px;
 }
 
 .company-png {
-
+    max-height: 90px;
+    max-width: 350px;
+    border-radius: 20px;
 }

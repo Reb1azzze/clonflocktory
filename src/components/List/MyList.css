@@ -1,12 +1,26 @@
+.list-component {
+
+}
+
 .my-list {
-    width: 25%;
+    position: relative;
+    border-radius: 32px;
+    width: 100%;
     height: 50%;
     margin: auto;
-    margin-top: 10%;
+    top: -60px;
+    background: #f2f3fb;
+    display: flex;
+    justify-content: center;
 }
 
 .list-header {
     display: flex;
+    height: 30dvh;
     justify-content: center;
+    flex-direction: column;
+    gap: 10%;
+    align-items: center;
     font-size: 2.5em;
+    background: linear-gradient(135deg, lightblue 10%, #84f6dc 50%, #1ff4cc 100%);
 }

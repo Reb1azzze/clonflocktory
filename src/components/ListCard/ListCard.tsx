@@ -13,7 +13,7 @@ interface CardProps {
 const ListCard = (props: CardProps) => {
     let navigate = useNavigate();
     return (
-        <div className='list-card' onClick={() => {navigate("card")}}>
+        <div className='list-card' onClick={() => {navigate(`card/${props.id}`)}}>
             <img className='company-png' src={props.image} alt={props.description}/>
             <div className='title'>{props.title}</div>
             <img className='present-png' src={PresentPng} alt={props.description}/>
