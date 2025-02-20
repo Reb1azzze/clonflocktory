@@ -3,7 +3,6 @@ import Wheel from "../components/Wheel/Wheel";
 import "./App.css";
 import MyList from "../components/List/MyList";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Card from "../components/Card/Card";
 import Spinner from "../components/Spinner/Spinner";
 
 const App: React.FC = () => {
