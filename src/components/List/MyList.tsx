@@ -1,37 +1,87 @@
-import React from 'react';
-import { List } from 'antd';
+import React, {useState} from 'react';
+import {CountdownProps, List, Modal, Progress, ProgressProps} from 'antd';
 import "./MyList.css";
 import ListCard from "../ListCard/ListCard";
-import PodrugeSvg from "../../assets/svg/logo-sm.svg";
-import PodrugePng from "../../assets/png/podruge.png"
 import { Statistic } from 'antd';
+import useOfferList from "../../hooks/useOfferList";
+import { IOfferListItem } from "../../api/types/OfferList";
+import Card from "../Card/Card";
 
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 5;
+const fiveMin = 1000 * 60 * 5 + 1500;
+
+const twoColors: ProgressProps['strokeColor'] = {
+    '0%': '#71fdc0',
+    '100%': '#c2f3d6',
+};
 
 
-const data = [
-    <ListCard title="Сертификат 3000р" description="круто" image={PodrugePng} id={1} />,
-    <ListCard title="Скидка 15%" description="круто" image={PodrugePng} id={2} />,
-    <ListCard title="Клубная карта" description="круто" image={PodrugePng} id={3} />,
-    <ListCard title="Сертификат 1000р" description="круто" image={PodrugePng} id={4} />,
-    <ListCard title="Скидка 10%" description="круто" image={PodrugePng} id={5} />,
-];
+const MyList: React.FC = () => {
+    const data = useOfferList();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedItem, setSelectedItem] = useState<IOfferListItem | null>(null);
+    const [time, setTime] = useState(deadline);
 
-const MyList: React.FC = () => (
+    const handleOpenModal = (item: IOfferListItem) => {
+        setSelectedItem(item);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedItem(null);
+    };
+
+    const onChangeTimer: CountdownProps['onChange'] = (val) => {
+        if (typeof val === 'number' ) {
+            setTime(val);
+        }
+    }
+
+    return(
     <div className={'list-component'}>
         <div className='list-header'>
             Выберите 1 подарок
-            <Countdown title="Осталось времени: " value={deadline} format="HH:mm:ss:SSS" />
+        </div>
+        <div className='progressBar'>
+            <Progress type="circle" percent={+((time/fiveMin)*100).toFixed(0)} strokeColor={twoColors}/>
+            <Countdown title="Осталось времени: " value={deadline} onChange={onChangeTimer} format="mm:ss" />
         </div>
         <List
             size="large"
             bordered
-            dataSource={data}
+            dataSource={data?.data || []}
             className={'my-list'}
-            renderItem={(item) => <List.Item>{item}</List.Item>}
+            renderItem={(item: IOfferListItem) => <List.Item onClick={() => handleOpenModal(item)} style={{ cursor: "pointer" }}>
+                <ListCard
+                title={item.title}
+                description={item.description}
+                image={item.logo_full}
+                id={item.id}
+            /></List.Item>}
         />
+        <Modal
+            title={null}
+            open={isModalOpen}
+            onCancel={handleCloseModal}
+            footer={null}
+            centered
+        >
+            {selectedItem && (
+                <Card
+                    title={selectedItem.title}
+                    description={selectedItem.description}
+                    image={selectedItem.logo_full}
+                    id={selectedItem.id}
+                />
+            )}
+        </Modal>
+
+        <div className='list-footer'>
+            <a className='link' href={'https://podruge.ru/politika-konfidentsialnosti/'}>Политика конфиденциальности</a>
+        </div>
     </div>
-);
+)};
 
 export default MyList;

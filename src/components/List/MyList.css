@@ -1,5 +1,29 @@
 .list-component {
+    background: linear-gradient(135deg, lightblue 10%, #84f6dc 50%, #1ff4cc 100%);
+}
 
+.ant-modal-content {
+    padding: 0 !important;
+}
+
+.progressBar {
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    left: 100px;
+    top: 250px;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ant-statistic-content {
+    display: flex;
+    justify-content: center;
 }
 
 .my-list {
@@ -8,19 +32,37 @@
     width: 100%;
     height: 50%;
     margin: auto;
-    top: -60px;
     background: #f2f3fb;
+    padding-top: 3dvh;
+    padding-bottom: 3dvh;
     display: flex;
     justify-content: center;
 }
 
 .list-header {
     display: flex;
-    height: 30dvh;
+    height: 25dvh;
     justify-content: center;
     flex-direction: column;
     gap: 10%;
     align-items: center;
     font-size: 2.5em;
-    background: linear-gradient(135deg, lightblue 10%, #84f6dc 50%, #1ff4cc 100%);
+}
+
+.list-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15dvh;
+}
+
+.link {
+    font-size: 1.5em;
+    color: black;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.link:hover {
+    color: #575757;
 }

@@ -1,0 +1,19 @@
+.form {
+    width: 100%;
+}
+
+.form-input {
+    height: 60px;
+    width: 100%;
+    font-size: 1.4em;
+}
+
+.progress-bar {
+
+}
+
+.form-button {
+    width: 100%;
+    height: 60px;
+    font-size: 1.4em;
+}
