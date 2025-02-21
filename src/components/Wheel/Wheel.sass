@@ -3,19 +3,30 @@
   width: 100%
   height: 100dvh
   overflow: hidden
+  @media screen and (max-width: 700px)
+    font-size: 0.8em
 
 .wheelpng
   width: 600px
   height: 600px
   animation: rotater 5s ease-out forwards
+  @media screen and (max-width: 700px)
+    width: 300px
+    height: 300px
 
 .arrow
   width: 59px
   height: 75px
   position: absolute
+  right: 0
+  left: 0
   top: 386px
-  left: 930px
   z-index: 2
+  margin-inline: auto
+  @media screen and (max-width: 700px)
+    width: 30px
+    height: 38px
+    top: 258px
 
 .pngs
   display: flex
@@ -40,6 +51,10 @@
   height: auto
   left: 620px
   top: 120px
+  @media screen and (max-width: 700px)
+    max-width: 300px
+
+
 
 .wheel-button
   width: 50%
