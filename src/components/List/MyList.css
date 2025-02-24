@@ -47,6 +47,10 @@
     gap: 10%;
     align-items: center;
     font-size: 2.5em;
+    @media screen and (max-width: 1000px) {
+        height: 17dvh;
+        font-size: 1.8em;
+    }
 }
 
 .list-footer {

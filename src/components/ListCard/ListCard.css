@@ -6,7 +6,7 @@
     cursor: pointer;
     padding: 14px;
     background: #ffffff;
-    min-width: 1200px;
+    min-width: 70dvw;
     border-radius: 20px;
     transition: .2s;
 }
@@ -21,15 +21,22 @@
 .title {
     text-align: center;
     font-size: 2em;
-    min-width: 720px;
+    width: 40dvw;
+
+    @media screen and (max-width: 1000px) {
+        font-size: 1em !important;
+    }
 }
 
 .company-png {
-    max-height: 90px;
-    max-width: 350px;
+    max-height: 8dvw;
     border-radius: 20px;
+    block-size: fit-content;
 }
 
 .present-png {
-    max-width: 110px;
+    max-height: 80px;
+    @media screen and (max-width: 1000px) {
+        max-height: 40px;
+    }
 }
