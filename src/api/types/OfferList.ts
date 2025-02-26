@@ -3,9 +3,11 @@ export interface IOfferListItem {
     created_at: string;
     title: string;
     description: string;
+    description_short: string;
     is_published: boolean;
     logo_short: string;
     logo_full: string;
+    privacy: string;
     terms: string;
 }
 

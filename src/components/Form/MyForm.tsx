@@ -7,6 +7,7 @@ import "./MyForm.css";
 
 interface MyFormProps {
     offerId: number;
+    onSuccess: () => void;
 }
 
 const twoColors: ProgressProps['strokeColor'] = {
@@ -14,7 +15,7 @@ const twoColors: ProgressProps['strokeColor'] = {
     '100%': '#b7fdeb',
 };
 
-const MyForm: React.FC<MyFormProps> = ({ offerId }) => {
+const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
     const [fillPercent, setFillPercent] = useState(0);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -27,6 +28,7 @@ const MyForm: React.FC<MyFormProps> = ({ offerId }) => {
                 offer_id: offerId,
             });
             console.log('Success:');
+            onSuccess();
         } catch {
             console.log('Ошибка при отправке формы');
         }

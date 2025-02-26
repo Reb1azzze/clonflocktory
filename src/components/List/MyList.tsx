@@ -42,6 +42,11 @@ const MyList: React.FC = () => {
         }
     }
 
+    const handleFormSuccess = () => {
+        setIsModalOpen(false); // Close the modal when form submission is successful
+        setSelectedItem(null);
+    };
+
     return(
     <div className={'list-component'}>
         <div className='list-header'>
@@ -83,9 +88,12 @@ const MyList: React.FC = () => {
                     key={selectedItem.id}
                     title={selectedItem.title}
                     description={selectedItem.description}
+                    description_short={selectedItem.description_short}
                     logo_full={selectedItem.logo_full}
                     logo_short={selectedItem.logo_short}
                     id={selectedItem.id}
+                    privacy={selectedItem.privacy}
+                    onSuccess={handleFormSuccess}
                 />
             )}
         </Modal>
