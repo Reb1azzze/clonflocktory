@@ -1,21 +1,38 @@
 .list-component {
     background: linear-gradient(135deg, lightblue 10%, #84f6dc 50%, #1ff4cc 100%);
+    min-height: 100dvh;
+}
+
+.list-header {
+    display: flex;
+    height: 25dvh;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10%;
+    align-items: center;
+    font-size: 2.5em;
+    @media screen and (max-width: 1000px) {
+        font-size: 1.8em;
+    }
 }
 
 .ant-modal-content {
     padding: 0 !important;
 }
 
-.progressBar {
+.progress-bar {
+    position: sticky;
+    box-sizing: border-box;
     background: #f1f1f1;
     border: 1px solid #ccc;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 10px;
-    left: 100px;
-    top: 250px;
-    position: fixed;
+    padding: 5px 35px;
+    width: 100dvw;
+    margin-bottom: 15px;
+    top: 0;
     z-index: 2;
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,25 +56,11 @@
     justify-content: center;
 }
 
-.list-header {
-    display: flex;
-    height: 25dvh;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10%;
-    align-items: center;
-    font-size: 2.5em;
-    @media screen and (max-width: 1000px) {
-        height: 17dvh;
-        font-size: 1.8em;
-    }
-}
-
 .list-footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15dvh;
+    height: 150dvh;
 }
 
 .link {
@@ -65,6 +68,9 @@
     color: black;
     text-decoration: none;
     transition: color 0.5s;
+    @media screen and (max-width: 1000px) {
+        font-size: 1em;
+    }
 }
 
 .link:hover {

@@ -6,12 +6,22 @@
     display: flex;
     flex-direction: column;
     transition: height 250ms;
+    @media screen and (max-width: 500px) {
+        padding: 20px;
+    }
 }
 
 .company-png-card {
     display: flex;
     margin: auto;
     justify-content: center;
+    @media screen and (max-width: 500px) {
+        max-width: 300px;
+    }
+
+    @media screen and (max-width: 350px) {
+        max-width: 250px;
+    }
 }
 
 .card-text {

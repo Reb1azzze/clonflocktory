@@ -16,3 +16,7 @@ h1 {
   font-size: 2rem;
   margin-bottom: 20px;
 }
+
+html, body {
+  height: 100dvh;
+}

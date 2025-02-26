@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import "./Card.css"
 import MyForm from "../Form/MyForm";
+import "./Card.css"
+
 
 interface ICardProps {
     title: string;
     description: string;
-    image: string;
+    logo_full: string;
+    logo_short: string
     id: number;
 }
 
@@ -15,7 +17,7 @@ const Card = (props: ICardProps) => {
 
     return (
         <div className='card'>
-            <img src={props.image} alt='wef' className='company-png-card'/>
+            <img src={props.logo_full} alt='wef' className='company-png-card'/>
             <span className='card-text'>{props.title}</span>
             <MyForm offerId={props.id}/>
             <div className='card-politics'>Нажимая кнопку «Получить подарок», я соглашаюсь с политикой конфиденциальности</div>

@@ -23,7 +23,7 @@ const MyForm: React.FC<MyFormProps> = ({ offerId }) => {
         try {
             await PostSubmit({
                 name: values.name,
-                phone: values.phone.replace(/\D/g, ""),
+                phone: values.phone.replace(/\D/g, "").substring(0,11),
                 offer_id: offerId,
             });
             console.log('Success:');
@@ -45,7 +45,7 @@ const MyForm: React.FC<MyFormProps> = ({ offerId }) => {
     };
 
     const updateProgressBar = (name: string, phone: string) => {
-        const isPhoneValid = phone.replace(/\D/g, "").length === 11;
+        const isPhoneValid = phone.replace(/\D/g, "").length >= 11;
         const isNameValid = name.trim() !== '';
 
         if (isNameValid && isPhoneValid) {
@@ -90,13 +90,14 @@ const MyForm: React.FC<MyFormProps> = ({ offerId }) => {
                     { required: true, message: 'Введите свой телефон!' },
                     {
                         validator: (_, value) => {
-                            const cleanedValue = value.replace(/\D/g, "");
+                            let cleanedValue = value.replace(/\D/g, "");
+                            cleanedValue = cleanedValue.length > 11 ? cleanedValue.substring(0,11) : cleanedValue;
                             return cleanedValue.length === 11 ? Promise.resolve() : Promise.reject(new Error("Введите корректный номер!"));
                         },
                     },
                 ]}
             >
-                <ReactInputMask mask="+7 999 999-99-99" value={phone} onChange={handlePhoneChange}>
+                <ReactInputMask mask="+7 999 999-99-99" value={phone} onChange={handlePhoneChange} >
                     {(inputProps) => <Input {...inputProps} className="form-input" size="large" placeholder="Ваш телефон" />}
                 </ReactInputMask>
             </Form.Item>

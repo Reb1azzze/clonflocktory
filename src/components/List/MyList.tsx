@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import {CountdownProps, List, Modal, Progress, ProgressProps} from 'antd';
-import "./MyList.css";
 import ListCard from "../ListCard/ListCard";
 import { Statistic } from 'antd';
 import useOfferList from "../../hooks/useOfferList";
 import { IOfferListItem } from "../../api/types/OfferList";
 import Card from "../Card/Card";
+import {useIsMobile} from "../../hooks/useIsMobile";
+import "./MyList.css";
+
 
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 5;
@@ -22,6 +24,7 @@ const MyList: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState<IOfferListItem | null>(null);
     const [time, setTime] = useState(deadline);
+    const isMobile = useIsMobile();
 
     const handleOpenModal = (item: IOfferListItem) => {
         setSelectedItem(item);
@@ -44,10 +47,16 @@ const MyList: React.FC = () => {
         <div className='list-header'>
             Выберите 1 подарок
         </div>
-        <div className='progressBar'>
-            <Progress type="circle" percent={+((time/fiveMin)*100).toFixed(0)} strokeColor={twoColors}/>
-            <Countdown title="Осталось времени: " value={deadline} onChange={onChangeTimer} format="mm:ss" />
-        </div>
+        {isMobile ?
+            <div className='progress-bar'>
+                <Progress type="line" percent={+((time/fiveMin)*100).toFixed(0)} strokeColor={twoColors}/>
+                <Countdown title="Осталось времени: " value={deadline} onChange={onChangeTimer} format="mm:ss" />
+            </div>
+            : <div className='progress-bar'>
+                <Progress type="line" percent={+((time/fiveMin)*100).toFixed(0)} strokeColor={twoColors}/>
+                <Countdown title="Осталось времени: " value={deadline} onChange={onChangeTimer} format="mm:ss" />
+        </div>}
+
         <List
             size="large"
             bordered
@@ -57,7 +66,8 @@ const MyList: React.FC = () => {
                 <ListCard
                 title={item.title}
                 description={item.description}
-                image={item.logo_full}
+                logo_full={item.logo_full}
+                logo_short={item.logo_short}
                 id={item.id}
             /></List.Item>}
         />
@@ -70,9 +80,11 @@ const MyList: React.FC = () => {
         >
             {selectedItem && (
                 <Card
+                    key={selectedItem.id}
                     title={selectedItem.title}
                     description={selectedItem.description}
-                    image={selectedItem.logo_full}
+                    logo_full={selectedItem.logo_full}
+                    logo_short={selectedItem.logo_short}
                     id={selectedItem.id}
                 />
             )}
