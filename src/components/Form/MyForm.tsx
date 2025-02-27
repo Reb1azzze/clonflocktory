@@ -89,7 +89,6 @@ const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
                 name="phone"
                 validateDebounce={500}
                 rules={[
-                    { required: true, message: 'Введите свой телефон!' },
                     {
                         validator: (_, value) => {
                             let cleanedValue = value.replace(/\D/g, "");
