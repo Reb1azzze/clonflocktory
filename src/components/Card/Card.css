@@ -28,17 +28,28 @@
     margin-top: 3dvh;
     margin-bottom: 1dvh;
     font-size: 2em;
+    @media screen and (max-width: 500px) {
+        font-size: 1.3em;
+    }
 }
 
 .card-description {
     margin-top: 5dvh;
     margin-bottom: 2dvh;
     font-size: 1.2em;
+
+    @media screen and (max-height: 600px) {
+        margin-top: 2dvh;
+        margin-bottom: 1dvh;
+    }
 }
 
 .card-politics {
     color : #b6b8b8;
     font-size: 1em;
+    @media screen and (max-width: 500px) {
+        font-size: 0.8em;
+    }
 }
 
 .card-more-info-button {
@@ -52,6 +63,9 @@
     opacity: 0;
     overflow: hidden;
     transition: max-height 250ms ease-in-out, opacity 250ms ease-in-out;
+    @media screen and (max-width: 500px) {
+        font-size: 1em;
+    }
 }
 
 .card-more-info-shown {

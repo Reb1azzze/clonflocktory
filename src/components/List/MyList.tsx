@@ -1,17 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {CountdownProps, List, Modal, Progress, ProgressProps} from 'antd';
 import ListCard from "../ListCard/ListCard";
 import { Statistic } from 'antd';
 import useOfferList from "../../hooks/useOfferList";
 import { IOfferListItem } from "../../api/types/OfferList";
 import Card from "../Card/Card";
-import {useIsMobile} from "../../hooks/useIsMobile";
 import "./MyList.css";
 
 
 const { Countdown } = Statistic;
-const deadline = Date.now() + 1000 * 60 * 5;
-const fiveMin = 1000 * 60 * 5 + 1500;
+const fiveMin = 1000 * 60 * 5;
 
 const twoColors: ProgressProps['strokeColor'] = {
     '0%': '#71fdc0',
@@ -23,8 +21,8 @@ const MyList: React.FC = () => {
     const data = useOfferList();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState<IOfferListItem | null>(null);
-    const [time, setTime] = useState(deadline);
-    const isMobile = useIsMobile();
+    const [deadline, setDeadline] = useState<number>(Date.now() + fiveMin);
+    const [time, setTime] = useState(fiveMin);
 
     const handleOpenModal = (item: IOfferListItem) => {
         setSelectedItem(item);
@@ -43,24 +41,25 @@ const MyList: React.FC = () => {
     }
 
     const handleFormSuccess = () => {
-        setIsModalOpen(false); // Close the modal when form submission is successful
+        setIsModalOpen(false);
         setSelectedItem(null);
     };
+
+    useEffect(() => {
+        const newDeadline = Date.now() + fiveMin;
+        setDeadline(newDeadline);
+        setTime(fiveMin);
+    }, []);
 
     return(
     <div className={'list-component'}>
         <div className='list-header'>
             Выберите 1 подарок
         </div>
-        {isMobile ?
-            <div className='progress-bar'>
-                <Progress type="line" percent={+((time/fiveMin)*100).toFixed(0)} strokeColor={twoColors}/>
-                <Countdown title="Осталось времени: " value={deadline} onChange={onChangeTimer} format="mm:ss" />
-            </div>
-            : <div className='progress-bar'>
-                <Progress type="line" percent={+((time/fiveMin)*100).toFixed(0)} strokeColor={twoColors}/>
-                <Countdown title="Осталось времени: " value={deadline} onChange={onChangeTimer} format="mm:ss" />
-        </div>}
+        <div className="progress-bar">
+            <Progress type="line" percent={+((time / fiveMin) * 99).toFixed(0)} strokeColor={twoColors} />
+            <Countdown title="Осталось времени: " value={deadline} onChange={onChangeTimer} format="mm:ss" />
+        </div>
 
         <List
             size="large"
