@@ -8,6 +8,7 @@ import "./MyForm.css";
 interface MyFormProps {
     offerId: number;
     onSuccess: () => void;
+    onProgress?: (percent: number) => void;
 }
 
 const twoColors: ProgressProps['strokeColor'] = {
@@ -15,7 +16,7 @@ const twoColors: ProgressProps['strokeColor'] = {
     '100%': '#b7fdeb',
 };
 
-const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
+const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess, onProgress }) => {
     const [fillPercent, setFillPercent] = useState(0);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -50,12 +51,16 @@ const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
         const isPhoneValid = phone.replace(/\D/g, "").length >= 11;
         const isNameValid = name.trim() !== '';
 
+        let newFillPercent = 0;
         if (isNameValid && isPhoneValid) {
-            setFillPercent(100);
+            newFillPercent = 100;
         } else if (isNameValid || isPhoneValid) {
-            setFillPercent(50);
-        } else {
-            setFillPercent(0);
+            newFillPercent = 50;
+        }
+
+        setFillPercent(newFillPercent)
+        if (onProgress) {
+            onProgress(newFillPercent);
         }
     };
 

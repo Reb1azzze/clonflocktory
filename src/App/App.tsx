@@ -4,8 +4,10 @@ import "./App.css";
 import MyList from "../components/List/MyList";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Spinner from "../components/Spinner/Spinner";
+import useUserUUID from "../hooks/useUserUUID";
 
 const App: React.FC = () => {
+    useUserUUID();
     return (
         <BrowserRouter>
             <Routes>

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import MyForm from "../Form/MyForm";
 import { Button } from "antd";
+import sendOfferLead from "../../api/metrics/sendOfferOnSubmit";
+import Cookies from "js-cookie";
 import "./Card.css"
+
 
 interface ICardProps {
     title: string;
@@ -20,7 +23,7 @@ const Card = (props: ICardProps) => {
     const [success, setSuccess] = useState(false);
 
     return (
-        <div className='card'>
+        <div className='card-container'>
             <img src={props.logo_full} alt='wef' className='company-png-card'/>
             <span className='card-text'>{props.title}</span>
             {success ? <div className="success-message">
@@ -30,7 +33,16 @@ const Card = (props: ICardProps) => {
                         color="cyan"
                         onClick={props.onSuccess}
                         className="close-modal-button">Выбрать еще 1 подарок</Button>
-            </div> : <div> <MyForm offerId={props.id} onSuccess={() => setSuccess(true)}/>
+            </div> :
+                <div>
+                    <MyForm offerId={props.id}
+                            onSuccess={() =>
+                            {
+                                setSuccess(true);
+                                sendOfferLead(props.id, window.location.href);
+                                const savedOffers = JSON.parse(Cookies.get("hiddenOffers") || "[]");
+                                Cookies.set("hiddenOffers", JSON.stringify([...savedOffers, props.id]), { expires: 1 });
+                            }}/>
                 <div className='card-politics'>{props.privacy}</div>
                 <div className='card-description'>{props.description_short}</div>
                 <div className='card-more-info-button' onClick={()=> {setMoreInfo(!moreInfo)}}>Подробнее</div>

@@ -1,0 +1,61 @@
+.game-modal {
+    position: fixed;
+    left: 0;
+    padding: 40px;
+}
+
+.game-modal-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 40px;
+}
+
+.game-present-png {
+    width: 100px;
+    opacity: 1;
+}
+
+.game-present-png-disabled {
+    width: 100px;
+    opacity: 0.2;
+}
+
+.game-winner-text {
+    align-content: center;
+}
+
+.before-game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.after-game-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.game-winner-container {
+    max-width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.game-enabled {
+    opacity: 1;
+}
+
+.game-disabled {
+    pointer-events: none;
+    opacity: 0.3;
+}

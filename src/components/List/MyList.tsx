@@ -4,8 +4,12 @@ import ListCard from "../ListCard/ListCard";
 import { Statistic } from 'antd';
 import useOfferList from "../../hooks/useOfferList";
 import { IOfferListItem } from "../../api/types/OfferList";
+import sendOfferList from "../../api/metrics/sendOfferList";
+import sendOfferOnClick from "../../api/metrics/sendOfferOnClick";
 import Card from "../Card/Card";
+import Cookies from "js-cookie";
 import "./MyList.css";
+
 
 
 const { Countdown } = Statistic;
@@ -23,8 +27,10 @@ const MyList: React.FC = () => {
     const [selectedItem, setSelectedItem] = useState<IOfferListItem | null>(null);
     const [deadline, setDeadline] = useState<number>(Date.now() + fiveMin);
     const [time, setTime] = useState(fiveMin);
+    const hiddenOffers = JSON.parse(Cookies.get("hiddenOffers") || "[]");
 
     const handleOpenModal = (item: IOfferListItem) => {
+        sendOfferOnClick(item.id, window.location.href);
         setSelectedItem(item);
         setIsModalOpen(true);
     };
@@ -49,7 +55,14 @@ const MyList: React.FC = () => {
         const newDeadline = Date.now() + fiveMin;
         setDeadline(newDeadline);
         setTime(fiveMin);
+
     }, []);
+
+    useEffect(() => {
+        if (data?.data?.length) {
+            sendOfferList(data.data.map((offer) => String(offer.id)), window.location.href);
+        }
+    }, [data]);
 
     return(
     <div className={'list-component'}>
@@ -64,7 +77,7 @@ const MyList: React.FC = () => {
         <List
             size="large"
             bordered
-            dataSource={data?.data || []}
+            dataSource={data?.data?.filter(item => !hiddenOffers.includes(item.id)) || []}
             className={'my-list'}
             renderItem={(item: IOfferListItem) => <List.Item onClick={() => handleOpenModal(item)} style={{ cursor: "pointer" }}>
                 <ListCard
@@ -96,7 +109,6 @@ const MyList: React.FC = () => {
                 />
             )}
         </Modal>
-
         <div className='list-footer'>
             <a className='link' href={'https://podruge.ru/politika-konfidentsialnosti/'}>Политика конфиденциальности</a>
         </div>
