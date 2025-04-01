@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Шар судьбы 🎱</title>
+    <!-- нормализатор CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!-- наши стили -->
+    <link rel="stylesheet" href="GameBall.css">
+
+</head>
+<body>
+<!-- раздел с вариантами ответов -->
+<div class="wrap">
+    <div class="game">
+        <form>
+            <!-- ответы -->
+            <input type="radio" name="answer" id="1" value="1"/><span>1</span>
+            <input type="radio" name="answer" id="2" value="2"/><span>2</span>
+            <input type="radio" name="answer" id="3" value="3"/><span>3</span>
+            <input type="radio" name="answer" id="4" value="4"/><span>4</span>
+            <input type="radio" name="answer" id="5" value="5"/><span>5</span>
+            <input type="radio" name="answer" id="6" value="6"/><span>6</span>
+            <input type="radio" name="answer" id="7" value="7"/><span>7</span>
+            <input type="radio" name="answer" id="8" value="8"/><span>8</span>
+            <input type="radio" name="answer" id="9" value="9"/><span>9</span>
+            <input type="radio" name="answer" id="10" value="10"/><span>10</span>
+            <input type="radio" name="answer" id="11" value="11"/><span>11</span>
+            <input type="radio" name="answer" id="12" value="12"/><span>12</span>
+            <input type="radio" name="answer" id="13" value="13"/><span>13</span>
+            <input type="radio" name="answer" id="14" value="14"/><span>14</span>
+            <input type="radio" name="answer" id="15" value="15"/><span>15</span>
+            <!-- шар -->
+            <div class="eight__backdrop"></div>
+            <!-- раздел с восьмёркой -->
+            <div class="eight">
+                <!-- лицевая сторона -->
+                <div class="eight__fascia">
+                    <!-- рисуем восьмёрку -->
+                    <div class="eight__number">8</div>
+                </div>
+                <!-- обратная сторона -->
+                <div class="eight__fascia">
+                    <!-- окно с ответом -->
+                    <div class="eight__window"></div>
+                </div>
+                <!-- таблица c названиями ответов -->
+                <ul>
+                    <li>
+                        <label for="1"></label>
+                    </li>
+                    <li>
+                        <label for="2"></label>
+                    </li>
+                    <li>
+                        <label for="3"></label>
+                    </li>
+                    <li>
+                        <label for="4"></label>
+                    </li>
+                    <li>
+                        <label for="5"></label>
+                    </li>
+                    <li>
+                        <label for="6"></label>
+                    </li>
+                    <li>
+                        <label for="7"></label>
+                    </li>
+                    <li>
+                        <label for="8"></label>
+                    </li>
+                    <li>
+                        <label for="9"></label>
+                    </li>
+                    <li>
+                        <label for="10"></label>
+                    </li>
+                    <li>
+                        <label for="11"></label>
+                    </li>
+                    <li>
+                        <label for="12"></label>
+                    </li>
+                    <li>
+                        <label for="13"></label>
+                    </li>
+                    <li>
+                        <label for="14"></label>
+                    </li>
+                    <li>
+                        <label for="15"></label>
+                    </li>
+                </ul>
+            </div>
+            <!-- кнопка сброса -->
+            <input type="reset"/>
+        </form>
+    </div>
+    <div class="greeting-container">
+        <h2 class="greeting-header">Испытай свою удачу</h2>
+        <div class="greeting-text">У вас есть шанс получить крутой бонус! Вам выпадет один из представленных ниже:</div>
+        <div class="greeting-text">1. Сертификат на 3000Р</div>
+        <div class="greeting-text">2. Сертификат на 1000Р</div>
+        <div class="greeting-text">3. Лазерная эпиляция 3000р скидка</div>
+        <div class="greeting-text">4. Стратосфера сертификат</div>
+        <div class="greeting-text">5. Гелиосфера скидка 3000р</div>
+        <div class="greeting-text">6. Сертификат на 8000Р</div>
+        <div class="greeting-text">7. Сертификат на 9000Р</div>
+        <div class="greeting-text">8. Сертификат на 500Р</div>
+        <div class="greeting-text">9. Лазерная эпиляция 3000р скидка</div>
+        <div class="greeting-text">10. Сертификат на 6000Р</div>
+        <div class="greeting-text">11. Сертификат на 5000Р</div>
+        <div class="greeting-text">12. Стратосфера сертификат</div>
+        <div class="greeting-text">13. Сертификат на 3000Р</div>
+        <div class="greeting-text">14. Гелиосфера скидка 3000р</div>
+        <div class="greeting-text">15. Сертификат на 7000Р</div>
+        <button class="greeting-button">Забрать</button>
+    </div>
+    <div class="modal-overlay">
+        <div class="modal">
+            <h2 class="winner">Победа!</h2>
+            <div class="winner-text"> Поздравляем! Вы выиграли сертификат на 3000р!</div>
+            <input type="text" placeholder="Ваше имя">
+            <input type="text" placeholder="Ваш телефон">
+            <button class="modal-button">Получить подарок</button>
+        </div>
+    </div>
+</div>
+<script src="GameBall.js"></script>
+</body>
+</html>

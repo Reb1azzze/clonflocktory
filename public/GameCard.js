@@ -11,6 +11,7 @@
             this.$modal = $(".modal");
             this.$overlay = $(".modal-overlay");
             this.$restartButton = $("button.restart");
+            this.$greetingContainer = $(".greeting-container");
             // собираем из карточек массив — игровое поле
             this.cardsArray = $.merge(cards, cards);
             // перемешиваем карточки
@@ -97,6 +98,7 @@
             setTimeout(function(){
                 Memory.showModal();
                 Memory.$game.fadeOut();
+                Memory.$greetingContainer.fadeOut().css("display", "none");
                 window.parent.postMessage({ gameEnded: true }, "*");
             }, 1000);
         },
