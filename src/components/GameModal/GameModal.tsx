@@ -44,6 +44,7 @@ const GameModal: React.FC<HtmlPopupProps> = ({ isOpen, onClose, url }) => {
                     <img src={"https://podruge.ru/local/templates/main/assets/img/logo.svg"} alt={"logo"}/>
                         <span className="game-winner-text">🎁Поздравляем, вы выиграли "Сертификат на 3000р!" Заполните поля</span>
                 </div> :
+                    // eslint-disable-next-line jsx-a11y/iframe-has-title
                     <iframe className={startGame ? 'game-enabled' : 'game-disabled'}
                             src={url}
                             width="100%"

@@ -25,8 +25,8 @@ const MyList: React.FC = () => {
     const [deadline, setDeadline] = useState<number>(Date.now() + fiveMin);
     const [time, setTime] = useState(fiveMin);
     const hiddenOffers = JSON.parse(Cookies.get("hiddenOffers") || "[]");
-    const [visibleOffers, setVisibleOffers] = useState<Record<number, number>>({});
-    const [sentOffers, setSentOffers] = useState<Set<number>>(new Set());
+    const [, setVisibleOffers] = useState<Record<number, number>>({});
+    const [, setSentOffers] = useState<Set<number>>(new Set());
     const uuid = Cookies.get("vid");
 
     const handleOpenModal = (item: IOfferListItem) => {
@@ -114,6 +114,7 @@ const MyList: React.FC = () => {
         startObserving();
 
         return () => observer.disconnect();
+        //eslint-disable-next-line
     }, [data]); // ✅ Перезапускаем `useEffect` после загрузки данных
     
 
