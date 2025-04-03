@@ -1,17 +1,15 @@
-const sendOfferOnClick = (offerId: number, ref: string) => {
-    fetch("https://wheel-metrics.institutmp.io/events", {
+const sendOfferOnClick = (offerId: number, ref: string, uuid: string) => {
+    const payload = { oid: offerId };
+
+    fetch("https://wheel-api.institutmp.io/events/click", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            'X-Ref': ref,
+            'X-Visitor-Id': uuid,
         },
-        body: JSON.stringify({
-            event: "offer-click",
-            data: {
-                offer_id: offerId,
-                ref,
-            },
-        }),
-    }).catch((err) => console.error("Failed to send offer event:", err));
+        body: JSON.stringify(payload),
+    });
 };
 
 export default sendOfferOnClick;

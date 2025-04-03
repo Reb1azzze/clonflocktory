@@ -21,6 +21,7 @@ const Card = (props: ICardProps) => {
 
     const [moreInfo, setMoreInfo] = useState(false);
     const [success, setSuccess] = useState(false);
+    const uuid = Cookies.get("vid");
 
     return (
         <div className='card-container'>
@@ -39,7 +40,7 @@ const Card = (props: ICardProps) => {
                             onSuccess={() =>
                             {
                                 setSuccess(true);
-                                sendOfferLead(props.id, window.location.href);
+                                sendOfferLead(props.id, window.location.href, uuid || "");
                                 const savedOffers = JSON.parse(Cookies.get("hiddenOffers") || "[]");
                                 Cookies.set("hiddenOffers", JSON.stringify([...savedOffers, props.id]), { expires: 1 });
                             }}/>

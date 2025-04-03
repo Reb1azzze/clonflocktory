@@ -5,6 +5,7 @@ import MyList from "../components/List/MyList";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Spinner from "../components/Spinner/Spinner";
 import useUserUUID from "../hooks/useUserUUID";
+import Test from "../pages/test";
 
 const App: React.FC = () => {
     useUserUUID();
@@ -14,6 +15,7 @@ const App: React.FC = () => {
                 <Route path="/" element={<Wheel/>}/>
                 <Route path="list" element={<MyList/>}/>
                 <Route path="spinner" element={<Spinner/>}/>
+                <Route path="test" element={<Test/>}/>
             </Routes>
         </BrowserRouter>
     );

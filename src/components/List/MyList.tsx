@@ -30,7 +30,7 @@ const MyList: React.FC = () => {
     const uuid = Cookies.get("vid");
 
     const handleOpenModal = (item: IOfferListItem) => {
-        sendOfferOnClick(item.id, window.location.href);
+        sendOfferOnClick(item.id, window.location.href, uuid || "");
         setSelectedItem(item);
         setIsModalOpen(true);
     };
@@ -89,9 +89,7 @@ const MyList: React.FC = () => {
                             .filter(({ oid }) => !prevSentOffers.has(oid));
 
                         if (newOffers.length > 0) {
-                            console.log("📤 Sending request:", newOffers.map(o => o.oid));
                             sendOfferList(newOffers.map(o => String(o.oid)), window.location.href, uuid || "");
-
                             return new Set([...prevSentOffers, ...newOffers.map(o => o.oid)]);
                         }
                         return prevSentOffers;

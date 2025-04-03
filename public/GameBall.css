@@ -16,6 +16,7 @@ body {
     flex-direction: row;
     width: 100dvw;
     justify-content: center;
+    overflow: hidden;
 }
 
 .game {
@@ -47,6 +48,8 @@ body {
 
 .greeting-text {
     text-align: center;
+    transition: opacity 1.5s ease-in-out;
+    opacity: 1;
 }
 
 .greeting-button {
