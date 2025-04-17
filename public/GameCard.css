@@ -39,6 +39,11 @@
         height: 100%;
     }
 
+    .game.disabled {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
     .greeting-container {
         background: white;
         display: flex;

@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         radio.addEventListener("change", () => {
             if (offers[radio.value]) {
                 updateGreeting(radio.value);
+                button.disabled = false;
             }
         });
     });

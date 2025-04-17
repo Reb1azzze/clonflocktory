@@ -67,6 +67,12 @@ body {
     margin: 0 auto;
 }
 
+.greeting-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 .modal-overlay {
     /* на старте его не видно */
     display: none;

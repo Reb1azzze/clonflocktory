@@ -18,6 +18,9 @@
             this.shuffleCards(this.cardsArray);
             // и раскладываем их
             this.setup();
+            $(".greeting-button").on("click", function () {
+                $(".game").removeClass("disabled");
+            });
         },
 
         // как перемешиваются карточки
