@@ -1,10 +1,12 @@
+import {ApiPaths} from "../../constants/ApiPaths";
+
 const sendOfferList = (offerIds: string[], ref: string, uuid: string) => {
     const eventPayload = offerIds.map((oid) => ({
         oid,
         ts: Date.now(),
     }));
 
-    fetch("https://wheel-api.institutmp.io/events/view", {
+    fetch(ApiPaths.MetricOfferList, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
