@@ -58,6 +58,7 @@
 }
 
 .card-more-info {
+    white-space: pre-line;
     font-size: 1.2em;
     max-height: 0;
     opacity: 0;
