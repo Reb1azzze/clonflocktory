@@ -1,5 +1,5 @@
 .list-component {
-    background: linear-gradient(135deg, lightblue 10%, #84f6dc 50%, #1ff4cc 100%);
+    background: url("../../assets/png/mainback.png");
     min-height: 100dvh;
 }
 

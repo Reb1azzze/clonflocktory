@@ -1,4 +1,4 @@
-export const ApiBaseRoot = 'https://api.clickwise.promo/'
+export const ApiBaseRoot = 'https://wheel-api.institutmp.io/'
 
 export const ApiPaths = {
     // API для получения офферов

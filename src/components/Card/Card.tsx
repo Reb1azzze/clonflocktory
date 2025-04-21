@@ -22,6 +22,7 @@ const Card = (props: ICardProps) => {
     const [moreInfo, setMoreInfo] = useState(false);
     const [success, setSuccess] = useState(false);
     const uuid = Cookies.get("vid");
+    const moreInfoRef = React.useRef<HTMLDivElement>(null);
 
     return (
         <div className='card-container'>
@@ -48,7 +49,13 @@ const Card = (props: ICardProps) => {
                 <div className='card-description'>{props.description_short}</div>
                 <div className='card-more-info-button' onClick={()=> {setMoreInfo(!moreInfo)}}>Подробнее</div>
                 <div
-                    style={{ maxHeight: moreInfo ? "300px" : "0px", opacity: moreInfo ? 1 : 0,}} className='card-more-info'>
+                    ref={moreInfoRef}
+                    style={{
+                        maxHeight: moreInfo ? `${moreInfoRef.current?.scrollHeight}px` : "0px",
+                        opacity: moreInfo ? 1 : 0,
+                        overflow: "hidden",
+                        transition: "max-height 250ms ease-in-out, opacity 250ms ease-in-out"}}
+                    className='card-more-info'>
                     {props.description}
                 </div>
             </div>}
