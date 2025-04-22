@@ -1,6 +1,5 @@
 import React from 'react';
-import PresentPng from "../../assets/png/gift-icon.png";
-import test from "../../assets/png/gift.png";
+import PresentPng from "../../assets/png/gift.png";
 import {useIsMobile} from "../../hooks/useIsMobile";
 import './ListCard.css';
 
@@ -16,10 +15,10 @@ const ListCard = (props: CardProps) => {
     const isMobile = useIsMobile();
     return (
         <div className='list-card'>
-            {isMobile ? <img className='company-png' src={props.logo_short}/> :
-                <img className='company-png' src={props.logo_full}/>}
+            {isMobile ? <img className='company-png' src={props.logo_short} alt={'1'}/> :
+                <img className='company-png' src={props.logo_full} alt={'2'}/>}
             <div className='title'>{props.title}</div>
-            <img className='present-png' src={test}/>
+            <img className='present-png' src={PresentPng} alt={'3'}/>
         </div>
     );
 };
