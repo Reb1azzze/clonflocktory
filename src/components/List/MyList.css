@@ -76,3 +76,36 @@
 .link:hover {
     color: #575757;
 }
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #323232;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-banner button {
+    background-color: #404040;
+    color: white;
+    border: none;
+    padding: 3px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.cookie-banner button:hover {
+    background-color: #45a049;
+}
+

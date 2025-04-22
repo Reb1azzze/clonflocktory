@@ -27,7 +27,7 @@ const MyList: React.FC = () => {
     const hiddenOffers = JSON.parse(Cookies.get("hiddenOffers") || "[]");
     const [, setVisibleOffers] = useState<Record<number, number>>({});
     const [, setSentOffers] = useState<Set<number>>(new Set());
-    const [isCookieModalVisible, setIsCookieModalVisible] = useState(false);
+    const [showCookieBanner, setShowCookieBanner] = useState(false);
     const uuid = Cookies.get("vid");
 
     const handleOpenModal = (item: IOfferListItem) => {
@@ -54,11 +54,7 @@ const MyList: React.FC = () => {
 
     const handleAcceptCookies = () => {
         Cookies.set('cookieConsent', 'accepted', { expires: 365 });
-        setIsCookieModalVisible(false);
-    };
-
-    const handleRejectCookies = () => {
-        window.location.href = 'https://google.com';
+        setShowCookieBanner(false);
     };
 
     useEffect(() => {
@@ -66,7 +62,7 @@ const MyList: React.FC = () => {
         setDeadline(newDeadline);
         const consent = Cookies.get('cookieConsent');
         if (!consent) {
-            setIsCookieModalVisible(true);
+            setShowCookieBanner(true);
         }
         setTime(fiveMin);
     }, []);
@@ -178,29 +174,15 @@ const MyList: React.FC = () => {
                 />
             )}
         </Modal>
+        {showCookieBanner && (
+            <div className="cookie-banner">
+                <span>Мы используем cookies</span>
+                <Button onClick={handleAcceptCookies}>ОK</Button>
+            </div>
+        )}
         <div className='list-footer'>
             <a className='link' href={'https://podruge.ru/politika-konfidentsialnosti/'}>Политика конфиденциальности</a>
         </div>
-        <Modal
-            open={isCookieModalVisible}
-            onCancel={() => {}}
-            footer={null}
-            closable={false}
-            centered
-        >
-            <div style={{ textAlign: 'center', padding:'30px', fontSize: '16px' }}>
-                <h3>Мы используем cookies 🍪</h3>
-                <p>Продолжая пользоваться сайтом, вы соглашаетесь на использование файлов cookies.</p>
-                <div style={{ marginTop: 20 }}>
-                    <Button type="primary" onClick={handleAcceptCookies} style={{ marginRight: 10 }}>
-                        Согласен
-                    </Button>
-                    <Button danger onClick={handleRejectCookies}>
-                        Не согласен
-                    </Button>
-                </div>
-            </div>
-        </Modal>
     </div>
 )};
 
