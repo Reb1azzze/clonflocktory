@@ -16,10 +16,10 @@ const ListCard = (props: CardProps) => {
     const isMobile = useIsMobile();
     return (
         <div className='list-card'>
-            {isMobile ? <img className='company-png' src={props.logo_short} alt={props.description}/> :
-                <img className='company-png' src={props.logo_full} alt={props.description}/>}
+            {isMobile ? <img className='company-png' src={props.logo_short}/> :
+                <img className='company-png' src={props.logo_full}/>}
             <div className='title'>{props.title}</div>
-            <img className='present-png' src={test} alt={props.description}/>
+            <img className='present-png' src={test}/>
         </div>
     );
 };
