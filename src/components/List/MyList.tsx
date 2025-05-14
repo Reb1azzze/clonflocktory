@@ -66,14 +66,6 @@ const MyList: React.FC = () => {
         }
         setTime(fiveMin);
     }, []);
-/*
-* useEffect(() => {
-        if (data?.data?.length) {
-            sendOfferList(data.data.map((offer) => String(offer.id)), window.location.href, uuid);
-        }
-    }, [data]);
-*
-* */
 
     useEffect(() => {
         let scrollTimeout: NodeJS.Timeout;
@@ -181,7 +173,7 @@ const MyList: React.FC = () => {
             </div>
         )}
         <div className='list-footer'>
-            <a className='link' href={'https://podruge.ru/politika-konfidentsialnosti/'}>Политика конфиденциальности</a>
+            <a className='link' href={'https://docs.clickwise.promo/privacy.pdf'}>Политика конфиденциальности</a>
         </div>
     </div>
 )};

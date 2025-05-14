@@ -4,7 +4,6 @@ import MyForm from "../Form/MyForm";
 import GamePresentPng from "../../assets/png/game-present.png"
 import "./GameModal.css";
 
-
 interface HtmlPopupProps {
     isOpen: boolean;
     onClose: () => void;
