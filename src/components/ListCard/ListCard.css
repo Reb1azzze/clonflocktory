@@ -17,7 +17,6 @@
 }
 
 .list-card:hover {
-    background: hsla(0,0%,100%,.3);
     transform: scaleX(1.02);
     transition: 0.15s;
     box-shadow: 8px 8px 8px rgba(0,0,0,0.1);

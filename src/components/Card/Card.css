@@ -56,6 +56,7 @@ border antd
 }
 
 .card-politics {
+    color : #b6b8b8 !important;
     font-size: 1em;
     margin-bottom: 25px;
     @media screen and (max-width: 500px) {

@@ -58,7 +58,6 @@ const Card = (props: ICardProps) => {
                                 const savedOffers = JSON.parse(Cookies.get("hiddenOffers") || "[]");
                                 Cookies.set("hiddenOffers", JSON.stringify([...savedOffers, props.id]), { expires: 1 });
                             }}
-                            privacy={props.privacy}
                     />
             </div>}
         </div>
