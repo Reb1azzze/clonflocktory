@@ -5,6 +5,7 @@ import { ISubmitData } from "../../api/types/Submit";
 import ReactInputMask from "react-input-mask";
 import UserFilled from "../../assets/svg/UserFilled";
 import PhoneFilled from "../../assets/svg/PhoneFilled";
+import Cookies from "js-cookie";
 import "./MyForm.css";
 
 interface MyFormProps {
@@ -24,8 +25,9 @@ const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
                 name: values.name,
                 phone: values.phone.replace(/\D/g, "").substring(0,11),
                 offer_id: offerId,
+                ref: window.location.href,
+                uuid: Cookies.get("vid") || ""
             });
-            console.log('Success:');
             onSuccess();
         } catch {
             console.log('Ошибка при отправке формы');

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Cookies from "js-cookie";
 
 const USER_COOKIE_NAME = "vid";
-const COOKIE_EXPIRATION_DAYS = 365; // 1 year
+const COOKIE_EXPIRATION_DAYS = 1; // 1 year
 
 const useUserUUID = () => {
 

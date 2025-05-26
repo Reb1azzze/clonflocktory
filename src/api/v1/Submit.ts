@@ -10,7 +10,11 @@ export const PostSubmit = async (data: ISubmitData): Promise<void> => {
 
     try {
         await axios.post(ApiPaths.Submit, formData, {
-            headers: { "Content-Type": "multipart/form-data" },
+            headers: {
+                "Content-Type": "multipart/form-data",
+                'X-Ref': data.ref,
+                'X-Visitor-Id': data.uuid,
+            },
         });
     } catch (error) {
         console.error("Error submitting form:", error);
