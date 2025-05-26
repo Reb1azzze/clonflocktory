@@ -1,5 +1,4 @@
 .wheel-page
-  background: black
   width: 100%
   height: 100dvh
   overflow: hidden
@@ -7,49 +6,39 @@
     font-size: 0.8em
 
 .wheel-container
-  max-width: 600px
+  max-width: 634px
   margin: auto
-  margin-top: 70px
-  padding: 30px
+  margin-top: 30px
   border-radius: 16px
   background: #fff
-  border: 1px solid #000000
   z-index: 1
   height: auto
-  @media screen and (max-height: 890px)
-    max-width: 500px
-    margin-top: 10px
-  @media screen and (max-width: 700px)
-    max-width: 300px
+  font-family: Inter, sans-serif
+  @media screen and (max-width: 768px)
+    max-width: 353px
     margin-top: 70px
 
 .wheelpng
-  width: 600px
-  height: 600px
+  width: 634px
+  height: 634px
   animation: rotater 5s ease-out forwards
-  @media screen and (max-height: 890px)
-    width: 500px
-    height: 500px
-  @media screen and (max-width: 700px)
-    width: 300px
-    height: 300px
+  @media screen and (max-width: 768px)
+    width: 353px
+    height: 353px
 
 .arrow
-  width: 59px
-  height: 75px
+  width: 80px
+  height: 161px
   position: absolute
   right: 0
   left: 0
-  top: 356px
+  top: 230px
   z-index: 2
   margin-inline: auto
-  @media screen and (max-height: 890px)
-    max-width: 500px
-    top: 240px
-  @media screen and (max-width: 700px)
-    width: 30px
-    height: 38px
-    top: 228px
+  @media screen and (max-width: 768px)
+    width: 45px
+    height: 92px
+    top: 178px
 
 .pngs
   display: flex
@@ -57,13 +46,27 @@
 
 .wheel-text-block
   display: flex
-  gap: 20px
+  margin-top: 20px
+  gap: 47px
   justify-content: center
   flex-direction: column
   align-items: center
 
+.wheel-text
+  font-size: 36px
+  font-family: Montserrat, sans-serif
+  text-align: center
+  max-width: 240px
+
 .wheel-button
-  width: 50%
+  width: 100%
+  height: 56px !important
+  background: #D8FF3C !important
+  color: black !important
+  font-size: 46px !important
+  font-weight: 600 !important
+  font-family: Inter, sans-serif !important
+  box-shadow: 0 7px 7.6px 0 #0000000F
 
 @keyframes rotater
   from

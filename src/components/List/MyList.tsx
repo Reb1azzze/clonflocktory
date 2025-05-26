@@ -1,22 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {Button, CountdownProps, List, Modal, Progress, ProgressProps} from 'antd';
+import {Button, CountdownProps, List, Modal, Progress} from 'antd';
 import ListCard from "../ListCard/ListCard";
-import { Statistic } from 'antd';
+import {Statistic} from 'antd';
 import useOfferList from "../../hooks/useOfferList";
-import { IOfferListItem } from "../../api/types/OfferList";
+import {IOfferListItem} from "../../api/types/OfferList";
 import sendOfferList from "../../api/metrics/sendOfferList";
 import sendOfferOnClick from "../../api/metrics/sendOfferOnClick";
 import Card from "../Card/Card";
 import Cookies from "js-cookie";
 import "./MyList.css";
 
-const { Countdown } = Statistic;
+const {Countdown} = Statistic;
 const fiveMin = 1000 * 60 * 5;
-
-const twoColors: ProgressProps['strokeColor'] = {
-    '0%': '#71fdc0',
-    '100%': '#c2f3d6',
-};
 
 const MyList: React.FC = () => {
     const data = useOfferList();
@@ -42,7 +37,7 @@ const MyList: React.FC = () => {
     };
 
     const onChangeTimer: CountdownProps['onChange'] = (val) => {
-        if (typeof val === 'number' ) {
+        if (typeof val === 'number') {
             setTime(val);
         }
     }
@@ -53,7 +48,7 @@ const MyList: React.FC = () => {
     };
 
     const handleAcceptCookies = () => {
-        Cookies.set('cookieConsent', 'accepted', { expires: 365 });
+        Cookies.set('cookieConsent', 'accepted', {expires: 365});
         setShowCookieBanner(false);
     };
 
@@ -72,7 +67,7 @@ const MyList: React.FC = () => {
 
         const observer = new IntersectionObserver((entries) => {
             setVisibleOffers((prevVisibleOffers) => {
-                const newVisibleOffers = { ...prevVisibleOffers };
+                const newVisibleOffers = {...prevVisibleOffers};
 
                 entries.forEach((entry) => {
                     const offerId = Number(entry.target.getAttribute("data-id"));
@@ -87,8 +82,8 @@ const MyList: React.FC = () => {
                 scrollTimeout = setTimeout(() => {
                     setSentOffers((prevSentOffers) => {
                         const newOffers = Object.entries(newVisibleOffers)
-                            .map(([id, ts]) => ({ oid: Number(id), ts }))
-                            .filter(({ oid }) => !prevSentOffers.has(oid));
+                            .map(([id, ts]) => ({oid: Number(id), ts}))
+                            .filter(({oid}) => !prevSentOffers.has(oid));
 
                         if (newOffers.length > 0) {
                             sendOfferList(newOffers.map(o => String(o.oid)), window.location.href, uuid || "");
@@ -100,7 +95,7 @@ const MyList: React.FC = () => {
 
                 return newVisibleOffers;
             });
-        }, { threshold: 0.5 });
+        }, {threshold: 0.5});
 
         const startObserving = () => {
             const items = document.querySelectorAll(".offer-item");
@@ -116,66 +111,86 @@ const MyList: React.FC = () => {
         return () => observer.disconnect();
         //eslint-disable-next-line
     }, [data]); // ✅ Перезапускаем `useEffect` после загрузки данных
-    
 
-    return(
-    <div className={'list-component'}>
-        <div className='list-header'>
-            Выберите 1 подарок
-        </div>
-        <div className="progress-bar">
-            <Progress type="line" percent={+((time / fiveMin) * 99).toFixed(0)} strokeColor={twoColors} />
-            <Countdown title="Осталось времени: " value={deadline} onChange={onChangeTimer} format="mm:ss" />
-        </div>
 
-        <List
-            size="large"
-            bordered
-            dataSource={data?.data?.filter(item => !hiddenOffers.includes(item.id)) || []}
-            className={'my-list'}
-            renderItem={(item: IOfferListItem) =>
-                <List.Item
-                    onClick={() => handleOpenModal(item)} style={{ cursor: "pointer" }}
-                    className="offer-item"
-                    data-id={item.id}>
-                    <ListCard
-                        title={item.title}
-                        description={item.description}
-                        logo_full={item.logo_full}
-                        logo_short={item.logo_short}
-                        id={item.id}/>
-                </List.Item>}/>
-        <Modal
-            title={null}
-            open={isModalOpen}
-            onCancel={handleCloseModal}
-            footer={null}
-            centered
-        >
-            {selectedItem && (
-                <Card
-                    key={selectedItem.id}
-                    title={selectedItem.title}
-                    description={selectedItem.description}
-                    description_short={selectedItem.description_short}
-                    logo_full={selectedItem.logo_full}
-                    logo_short={selectedItem.logo_short}
-                    id={selectedItem.id}
-                    privacy={selectedItem.privacy}
-                    onSuccess={handleFormSuccess}
-                />
-            )}
-        </Modal>
-        {showCookieBanner && (
-            <div className="cookie-banner">
-                <span>Мы используем cookies</span>
-                <Button onClick={handleAcceptCookies}>ОK</Button>
+    return (
+        <div className={'page-component'}>
+            <div className='list-header'/>
+                <div className="progress-bar">
+                    <div className={'flex-title-value-progress'}>
+                        <div className="progress-bar-title">
+                            Времени Осталось
+                        </div>
+                        <Countdown
+                            value={deadline}
+                            onChange={onChangeTimer}
+                            className={'countdown-timer'}
+                            format="mm:ss"/>
+                    </div>
+                    <Progress
+                        type="line"
+                        className={'custom-progress'}
+                        showInfo={false}
+                        percent={+((time / fiveMin) * 99).toFixed(0)}
+                        strokeColor={time > 150000 ? '#8056D5' : '#FF4141'}
+                        trailColor={time > 150000 ? '#DFB1FF' : '#FFACAC'}
+                    />
+                </div>
+            <div className='list-component'>
+                <div className='list-title'>
+                    Все предложения:
+                </div>
+                <List
+                    size="large"
+                    dataSource={data?.data?.filter(item => !hiddenOffers.includes(item.id)) || []}
+                    className={'my-list'}
+                    renderItem={(item: IOfferListItem) =>
+                        <List.Item
+                            onClick={() => handleOpenModal(item)} style={{cursor: "pointer"}}
+                            className="offer-item"
+                            data-id={item.id}>
+                            <ListCard
+                                title={item.title}
+                                description={item.description}
+                                logo_full={item.logo_full}
+                                logo_short={item.logo_short}
+                                id={item.id}/>
+                        </List.Item>}
+                    split={false}/>
             </div>
-        )}
-        <div className='list-footer'>
-            <a className='link' href={'https://docs.clickwise.promo/privacy.pdf'}>Политика конфиденциальности</a>
+            <Modal
+                title={null}
+                open={isModalOpen}
+                onCancel={handleCloseModal}
+                footer={null}
+                centered
+                className={'modal-card'}
+            >
+                {selectedItem && (
+                    <Card
+                        key={selectedItem.id}
+                        title={selectedItem.title}
+                        description={selectedItem.description}
+                        description_short={selectedItem.description_short}
+                        logo_full={selectedItem.logo_full}
+                        logo_short={selectedItem.logo_short}
+                        id={selectedItem.id}
+                        privacy={selectedItem.privacy}
+                        onSuccess={handleFormSuccess}
+                    />
+                )}
+            </Modal>
+            {showCookieBanner && (
+                <div className="cookie-banner">
+                    <span>Мы используем cookies</span>
+                    <Button onClick={handleAcceptCookies}>ОK</Button>
+                </div>
+            )}
+            <div className='list-footer'>
+                <a className='link-footer' href={'https://docs.clickwise.promo/privacy.pdf'}>Политика конфиденциальности</a>
+            </div>
         </div>
-    </div>
-)};
+    )
+};
 
 export default MyList;

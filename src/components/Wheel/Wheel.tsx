@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import WheelPng from '../../assets/png/spinner.png'
-import ArrowPng from '../../assets/png/spinner icon.png'
+import WheelPng from '../../assets/png/Wheel svg.png';
+import ArrowPng from '../../assets/png/spinner icon new.png';
 import { useNavigate } from "react-router-dom";
 import {Button} from "antd";
 import './Wheel.sass'
@@ -23,8 +23,7 @@ const Wheel = () => {
                 <img className='wheelpng' src={WheelPng} alt='d'/>
                 {isRotated ?
                     <div className='wheel-text-block'>
-                        <span>Поздравляем, вам доступно 5 предложений!</span>
-                        <span>Выберите одно из них. У вас есть 5 минут.</span>
+                        <div className='wheel-text'>Вам доступно 8 подарков</div>
                         <Button variant="solid" color='cyan' className='wheel-button' onClick={handleOk}>ОК</Button>
                     </div> :
                     <div className='wheel-text-block'>

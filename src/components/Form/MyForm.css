@@ -11,15 +11,31 @@
     }
 }
 
-.progress-bar {
-
-}
-
 .form-button {
     width: 100%;
     height: 60px;
-    font-size: 1.4em;
-    @media screen and (max-width: 500px) {
-        height: 40px !important;
+    font-size: 23px;
+    font-weight: 600;
+    color: black !important;
+    background: #D8FF3C !important;
+    border-radius: 24px !important;
+    @media screen and (max-width: 768px) {
+        height: 60px !important;
+        border-radius: 10px !important;
     }
+}
+
+.form-button:disabled {
+    background: #EEEEEE !important;
+}
+
+/* Для кстомной подсветки success
+*/
+.ant-form-item-has-success .ant-input-affix-wrapper {
+    border: 1px solid #89C203 !important;
+}
+
+.ant-form-item-has-success .ant-input-suffix svg {
+    color: #89C203 !important;
+    fill: #89C203 !important;
 }

@@ -1,14 +1,22 @@
 .card-container {
     margin: auto;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    padding: 40px;
+    padding: 40px 40px 30px 40px;
     display: flex;
     flex-direction: column;
     transition: height 250ms;
-    @media screen and (max-width: 500px) {
-        padding: 20px;
+    font-family: Inter, sans-serif;
+    @media screen and (max-width: 768px) {
+        padding: 32px 13px;
     }
+}
+
+/*
+border antd
+*/
+.ant-modal-content {
+    border-radius: 20px !important;
 }
 
 .company-png-card {
@@ -25,48 +33,71 @@
 }
 
 .card-text {
-    margin-top: 3dvh;
-    margin-bottom: 1dvh;
-    font-size: 2em;
-    @media screen and (max-width: 500px) {
-        font-size: 1.3em;
+    margin-top: 65px;
+    font-size: 46px;
+    font-weight: 500;
+    line-height: 55px;
+    @media screen and (max-width: 768px) {
+        font-size: 25px;
+        margin-top: 40px;
+        font-weight: 400;
+        line-height: 100%;
     }
 }
 
 .card-description {
-    margin-top: 5dvh;
-    margin-bottom: 2dvh;
-    font-size: 1.2em;
-
-    @media screen and (max-height: 600px) {
-        margin-top: 2dvh;
-        margin-bottom: 1dvh;
+    font-size: 26px;
+    font-weight: 400;
+    margin-top: 30px;
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        margin-top: 20px;
     }
 }
 
 .card-politics {
-    color : #b6b8b8;
     font-size: 1em;
+    margin-bottom: 25px;
     @media screen and (max-width: 500px) {
         font-size: 0.8em;
     }
 }
 
+.card-link {
+    color : #b6b8b8 !important;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
 .card-more-info-button {
-    font-size: 2em;
+    font-size: 20px;
+    font-weight: 600;
     cursor: pointer;
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
 }
 
 .card-more-info {
     white-space: pre-line;
     font-size: 1.2em;
     max-height: 0;
+    margin-bottom: 30px;
     opacity: 0;
     overflow: hidden;
     transition: max-height 250ms ease-in-out, opacity 250ms ease-in-out;
     @media screen and (max-width: 500px) {
         font-size: 1em;
     }
+    @media screen and (max-width: 768px) {
+        margin-bottom: 30px;
+    }
+}
+/*
+less margin on antd form inputs
+*/
+.ant-form-item {
+    margin-bottom: 12px !important;
 }
 
 .card-more-info-shown {
@@ -86,9 +117,27 @@
     flex-direction: column;
     justify-content: center;
     gap: 30px;
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 400;
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
 }
 
 .close-modal-button {
-    font-size: 1.4em;
+    font-size: 36px;
+    background: #BFFF29 !important;
+    color: black !important;
+    height: 105px !important;
     padding: 20px;
+    border-radius: 24px;
+    font-weight: 600;
+
+    @media screen and (max-width: 768px) {
+        height: 57px !important;
+        font-size: 23px;
+    }
 }

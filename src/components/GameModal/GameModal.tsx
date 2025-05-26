@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Button, Modal} from "antd";
-import MyForm from "../Form/MyForm";
+//import MyForm from "../Form/MyForm";
 import GamePresentPng from "../../assets/png/game-present.png"
 import "./GameModal.css";
 
@@ -14,7 +14,7 @@ const GameModal: React.FC<HtmlPopupProps> = ({ isOpen, onClose, url }) => {
 
     const [startGame, setStartGame] = useState(false);
     const [finishGame, setFinishGame] = useState(false);
-    const [Present, SetPresent] = useState(false);
+    //const [Present, SetPresent] = useState(false);
 
     useEffect(() => {
         const handleGameMessage = (event: MessageEvent) => {
@@ -52,8 +52,8 @@ const GameModal: React.FC<HtmlPopupProps> = ({ isOpen, onClose, url }) => {
 
                 {finishGame ?
                     <div className={'after-game-container'}>
-                        <img className={Present ? 'game-present-png' : 'game-present-png-disabled'} src={GamePresentPng} alt={'gamepng'}/>
-                        <MyForm offerId={1} onSuccess={()=>{}} onProgress={(percent)=> {SetPresent(percent === 100)}}/>
+                        {/*<img className={Present ? 'game-present-png' : 'game-present-png-disabled'} src={GamePresentPng} alt={'gamepng'}/>*/}
+                        {/*<MyForm offerId={1} onSuccess={()=>{}} onProgress={(percent)=> {SetPresent(percent === 100)}}/>*/}
                     </div>:
                     <div className={'before-game-container'}>
                         <img className={'game-present-png'} src={GamePresentPng} alt={'gamepng'}/>

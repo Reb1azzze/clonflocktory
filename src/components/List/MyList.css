@@ -1,18 +1,37 @@
-.list-component {
-    background: url("../../assets/png/mainback.png");
+.page-component {
+    font-family: Inter, sans-serif !important;
     min-height: 100dvh;
 }
 
 .list-header {
-    display: flex;
-    height: 25dvh;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10%;
-    align-items: center;
-    font-size: 2.5em;
-    @media screen and (max-width: 1000px) {
-        font-size: 1.8em;
+    background: url("../../assets/png/pc-background.png");
+    background-size: cover;
+    height: 27dvw;
+    @media screen and (max-width: 768px) {
+        height: 63dvw;
+        background: url("../../assets/png/mobile-background.png");
+        background-size: cover;
+    }
+}
+
+.list-component {
+    background: #D8FF3C;
+    padding-left: 200px;
+    padding-right: 200px;
+    @media screen and (max-width: 768px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.list-title {
+    font-size: 50px;
+    font-weight: 600;
+    padding-top: 100px;
+    @media screen and (max-width: 768px) {
+        font-size: 22px;
+        padding-top: 47px;
+        text-align: center;
     }
 }
 
@@ -20,22 +39,55 @@
     padding: 0 !important;
 }
 
+.modal-card {
+    width: 708px !important;
+}
+
 .progress-bar {
     position: sticky;
     box-sizing: border-box;
-    background: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 5px 35px;
+    padding: 17px 20px;
     width: 100%;
-    margin-bottom: 15px;
     top: 0;
     z-index: 2;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: #FFFFFF;
+}
+
+.flex-title-value-progress {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.progress-bar-title {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.countdown-timer .ant-statistic-content-value {
+    font-size: 32px !important;
+    line-height: 1;
+    font-weight: 600;
+}
+/*
+Анимация перехода цвета
+*/
+.custom-progress .ant-progress-bg {
+    transition: all 0.5s ease;
+}
+
+.custom-progress .ant-progress-line {
+    transition: background-color 0.5s ease;
+}
+
+.custom-progress .ant-progress-inner {
+    transition: background-color 0.5s ease;
 }
 
 .ant-statistic-content {
@@ -46,14 +98,26 @@
 .my-list {
     position: relative;
     border-radius: 32px;
-    width: 100%;
+    min-width: 100%;
     height: 50%;
     margin: auto;
-    background: #f2f3fb;
-    padding-top: 3dvh;
+    padding-top: 18px;
     padding-bottom: 3dvh;
-    display: flex;
-    justify-content: center;
+    display: block;
+}
+/*
+   full-size card width
+*/
+.ant-list-item {
+    padding: 0 0 30px 0 !important;
+    @media screen and (max-width: 768px) {
+        padding: 0 0 14px 0 !important;
+    }
+
+}
+
+.ant-list-items {
+
 }
 
 .list-footer {
@@ -61,19 +125,21 @@
     justify-content: center;
     align-items: center;
     height: 15dvh;
+    background: #444444;
 }
 
-.link {
-    font-size: 1.5em;
-    color: black;
+.link-footer {
+    font-size: 30px;
     text-decoration: none;
     transition: color 0.5s;
-    @media screen and (max-width: 1000px) {
-        font-size: 1em;
+    color: white;
+
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
     }
 }
 
-.link:hover {
+.link-footer:hover {
     color: #575757;
 }
 
@@ -82,7 +148,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #323232;
+    background: #858585;
     color: white;
     display: flex;
     justify-content: center;
@@ -95,13 +161,13 @@
 }
 
 .cookie-banner button {
-    background-color: #404040;
-    color: white;
+    background-color: #FFFFFF;
+    color: #000000;
     border: none;
     padding: 3px 15px;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
     transition: background-color 0.2s;
 }
 

@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
-import { Button, Progress, ProgressProps, Form, Input } from 'antd';
+import React, {useEffect, useState} from 'react';
+import { Button, Form, Input } from 'antd';
 import { PostSubmit } from "../../api/v1/Submit";
 import { ISubmitData } from "../../api/types/Submit";
 import ReactInputMask from "react-input-mask";
+import UserFilled from "../../assets/svg/UserFilled";
+import PhoneFilled from "../../assets/svg/PhoneFilled";
 import "./MyForm.css";
 
 interface MyFormProps {
     offerId: number;
     onSuccess: () => void;
-    onProgress?: (percent: number) => void;
+    privacy: string;
 }
 
-const twoColors: ProgressProps['strokeColor'] = {
-    '0%': '#d1fdef',
-    '100%': '#b7fdeb',
-};
-
-const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess, onProgress }) => {
-    const [fillPercent, setFillPercent] = useState(0);
+const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess, privacy}) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
+    const [form] = Form.useForm();
+    const [isValid, setIsValid] = useState(false);
 
     const onFinish = async (values: { name: string; phone: string }) => {
         try {
@@ -38,61 +36,56 @@ const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess, onProgress }) => {
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newName = e.target.value;
         setName(newName);
-        updateProgressBar(newName, phone);
+        // updateProgressBar(newName, phone);
     };
 
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newPhone = e.target.value;
         setPhone(newPhone);
-        updateProgressBar(name, newPhone);
+        // updateProgressBar(name, newPhone);
     };
 
-    const updateProgressBar = (name: string, phone: string) => {
-        const isPhoneValid = phone.replace(/\D/g, "").length >= 11;
-        const isNameValid = name.trim() !== '';
+    useEffect(() => {
+        const handler = () => {
+            const hasErrors = form.getFieldsError().some(({ errors }) => errors.length > 0);
+            const allTouched = form.isFieldsTouched(true);
+            setIsValid(!hasErrors && allTouched);
+        };
 
-        let newFillPercent = 0;
-        if (isNameValid && isPhoneValid) {
-            newFillPercent = 100;
-        } else if (isNameValid || isPhoneValid) {
-            newFillPercent = 50;
-        }
+        handler(); // call once initially
+        const interval = setInterval(handler, 30); // poll form validity
 
-        setFillPercent(newFillPercent)
-        if (onProgress) {
-            onProgress(newFillPercent);
-        }
-    };
+        return () => clearInterval(interval);
+    }, [form]);
 
     return (
         <Form
             layout="vertical"
+            form={form}
             name="basic"
             onFinish={onFinish}
             autoComplete="off"
             className="form"
             initialValues={{ name: '', phone: '' }}
         >
-            <Progress percent={fillPercent} strokeColor={twoColors} />
             <Form.Item<ISubmitData>
-                hasFeedback
                 name="name"
                 validateDebounce={500}
                 rules={[{ required: true, message: 'Введите свое имя!' }]}
             >
                 <Input
                     className="form-input"
-                    style={{ marginTop: '3dvh' }}
                     size={"large"}
                     placeholder="Ваше имя"
                     value={name}
                     onChange={handleNameChange}
+                    suffix={<UserFilled style={{ color: '#bbb' }} />}
                 />
             </Form.Item>
             <Form.Item<ISubmitData>
-                hasFeedback
                 name="phone"
                 validateDebounce={500}
+
                 rules={[
                     {
                         validator: (_, value) => {
@@ -104,19 +97,26 @@ const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess, onProgress }) => {
                 ]}
             >
                 <ReactInputMask mask="+7 999 999-99-99" value={phone} onChange={handlePhoneChange} >
-                    {(inputProps) => <Input {...inputProps} className="form-input" size="large" placeholder="Ваш телефон" />}
+                    {(inputProps) =>
+                        <Input {...inputProps}
+                               className="form-input"
+                               size="large"
+                               placeholder="Ваш телефон"
+                               suffix={<PhoneFilled style={{ color: '#bbb' }} />}
+                        />}
                 </ReactInputMask>
             </Form.Item>
+            <div className='card-politics'><a className='card-link' href={'https://docs.clickwise.promo/podruge/public-oferta.pdf'}>{privacy}</a></div>
             <Form.Item label={null}>
                 <Button
-                    disabled={fillPercent !== 100}
+                    disabled={!isValid}
                     className="form-button"
                     type="primary"
                     variant="solid"
                     color="cyan"
                     htmlType="submit"
                 >
-                    Получить подарок
+                    Забрать подарок
                 </Button>
             </Form.Item>
         </Form>
