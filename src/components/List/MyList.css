@@ -4,9 +4,9 @@
 }
 
 .list-header {
-    background: url("../../assets/png/pc-background.png");
+    background: url("../../assets/png/final pc back.png");
     background-size: cover;
-    height: 27dvw;
+    height: 19dvw;
     @media screen and (max-width: 768px) {
         height: 63dvw;
         background: url("../../assets/png/mobile-background.png");
@@ -40,7 +40,7 @@
 }
 
 .modal-card {
-    width: 708px !important;
+    width: 550px !important;
 }
 
 .progress-bar {

@@ -2,7 +2,7 @@
     margin: auto;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    padding: 40px 40px 30px 40px;
+    padding: 20px 20px 10px 20px;
     display: flex;
     flex-direction: column;
     transition: height 250ms;
@@ -23,6 +23,7 @@ border antd
     display: flex;
     margin: auto;
     justify-content: center;
+    margin-top: 40px;
     @media screen and (max-width: 500px) {
         max-width: 300px;
     }
@@ -33,10 +34,11 @@ border antd
 }
 
 .card-text {
-    margin-top: 65px;
-    font-size: 46px;
+    margin-top: 60px;
+    font-size: 37px;
     font-weight: 500;
-    line-height: 55px;
+    line-height: 45px;
+    color: #38089B;
     @media screen and (max-width: 768px) {
         font-size: 25px;
         margin-top: 40px;
@@ -46,9 +48,10 @@ border antd
 }
 
 .card-description {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 400;
-    margin-top: 30px;
+    margin-top: 16px;
+    line-height: 26px;
     @media screen and (max-width: 768px) {
         font-size: 12px;
         margin-top: 20px;
@@ -57,7 +60,7 @@ border antd
 
 .card-politics {
     color : #b6b8b8 !important;
-    font-size: 1em;
+    font-size: 12px !important;
     margin-bottom: 25px;
     @media screen and (max-width: 500px) {
         font-size: 0.8em;
@@ -66,14 +69,15 @@ border antd
 
 .card-link {
     color : #b6b8b8 !important;
-    text-decoration: none;
+    text-decoration: underline;
     transition: color 0.5s;
 }
 
 .card-more-info-button {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    color: #38089B;
     @media screen and (max-width: 768px) {
         font-size: 10px;
     }
@@ -83,7 +87,7 @@ border antd
     white-space: pre-line;
     font-size: 1.2em;
     max-height: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     opacity: 0;
     overflow: hidden;
     transition: max-height 250ms ease-in-out, opacity 250ms ease-in-out;

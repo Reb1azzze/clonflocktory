@@ -24,10 +24,10 @@ const Wheel = () => {
                 {isRotated ?
                     <div className='wheel-text-block'>
                         <div className='wheel-text'>Вам доступно 8 подарков</div>
-                        <Button variant="solid" color='cyan' className='wheel-button' onClick={handleOk}>ОК</Button>
+                        <Button variant="solid" color='cyan' className='wheel-button' onClick={handleOk}>Выбрать</Button>
                     </div> :
                     <div className='wheel-text-block'>
-                        <span>Определяем количество доступных вам подарков.</span>
+                        <span className='wheel-spin-text'>Определяем количество доступных вам подарков.</span>
                     </div>}
             </div>
         </div>

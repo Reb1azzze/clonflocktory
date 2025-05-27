@@ -107,7 +107,7 @@ const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
                         />}
                 </ReactInputMask>
             </Form.Item>
-            <div className='card-politics'>Нажимая кнопку «Получить подарок», я соглашаюсь с <a className='card-link' href={'https://docs.clickwise.promo/privacy.pdf'}>политикой конфиденциальности </a>и <a className='card-link' href={'https://docs.clickwise.promo/podruge/public-oferta.pdf'}>публичной офертой на заключение договора платных медицинских услуг</a>, а также даю согласие ООО "НЕОБЬЮТИТЕХ" и ООО «Сеть клиник Подружки»  на направление мне рекламных сообщений и на обработку персональных данных.</div>
+            <div className='card-politics'>Нажимая «Забрать подарок», я принимаю условия <a className='card-link' href={'https://docs.clickwise.promo/privacy.pdf'}> политики конфиденциальности </a>и <a className='card-link' href={'https://docs.clickwise.promo/podruge/public-oferta.pdf'}>публичной оферты</a> ООО «НЕОБЬЮТИТЕХ» и ООО «Сеть клиник Подружки», а также соглашаюсь на обработку персональных данных и получение рекламных рассылок.</div>
             <Form.Item label={null}>
                 <Button
                     disabled={!isValid}
