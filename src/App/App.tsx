@@ -3,7 +3,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Wheel from "../components/Wheel/Wheel";
 import MyList from "../components/List/MyList";
 import useUserUUID from "../hooks/useUserUUID";
-import "@fontsource/inter";
 
 import "./App.css";
 
