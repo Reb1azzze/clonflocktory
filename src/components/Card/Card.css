@@ -2,11 +2,11 @@
     margin: auto;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 20px 20px;
     display: flex;
     flex-direction: column;
     transition: height 250ms;
-    font-family: Inter, sans-serif;
+    font-family: Inter;
     @media screen and (max-width: 768px) {
         padding: 32px 13px;
     }
@@ -24,6 +24,7 @@ border antd
     margin: auto;
     justify-content: center;
     margin-top: 40px;
+    max-height: 95px;
     @media screen and (max-width: 500px) {
         max-width: 300px;
     }
@@ -37,7 +38,7 @@ border antd
     margin-top: 60px;
     font-size: 37px;
     font-weight: 500;
-    line-height: 45px;
+    line-height: 42px;
     color: #38089B;
     @media screen and (max-width: 768px) {
         font-size: 25px;
@@ -117,7 +118,7 @@ less margin on antd form inputs
     transition: height,opacity 250ms;
 }
 
-.success-message {
+.success-message-block {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,11 +133,22 @@ less margin on antd form inputs
 
 }
 
+.success-text {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.good-day {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
 .close-modal-button {
-    font-size: 36px;
+    font-size: 33px;
     background: #BFFF29 !important;
-    color: black !important;
-    height: 105px !important;
+    color: #38089B !important;
+    height: 82px !important;
     padding: 20px;
     border-radius: 24px;
     font-weight: 600;

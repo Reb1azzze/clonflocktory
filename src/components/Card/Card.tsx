@@ -27,6 +27,18 @@ const Card = (props: ICardProps) => {
     return (
         <div className='card-container'>
             <img src={props.logo_full} alt='wef' className='company-png-card'/>
+            {success ? <div className="success-message-block">
+                    <span className='card-text'>Спасибо за выбор клиники «Подружки»!</span>
+                    <span className='success-text'>Наш оператор свяжется с Вами с 9:00 до 21:00 по МСК времени для согласования деталей и получения
+«Лазерная эпиляция бикини + подмышки за 1990₽» и СЮРПРИЗА от Сети клиник лазерной эпиляции «Подружки». Хорошего дня! "{props.title}" и СЮРПРИЗА от Сети клиник лазерной эпиляции "Подружки".</span>
+                    <span className='good-day'>Хорошего дня!</span>
+                    <Button type="primary"
+                            variant="solid"
+                            color="cyan"
+                            onClick={props.onSuccess}
+                            className="close-modal-button">Выбрать еще 1 подарок</Button>
+                </div> :
+                <div>
             <span className='card-text'>{props.title}</span>
             <div className='card-description'>{props.description_short}</div>
             <div className='card-more-info-button' onClick={()=> {setMoreInfo(!moreInfo)}}>Подробнее&gt;</div>
@@ -40,16 +52,7 @@ const Card = (props: ICardProps) => {
                 className='card-more-info'>
                 {props.description}
             </div>
-            {success ? <div className="success-message">
-                <span>Спасибо за выбор клиники «Подружки»! Наш оператор свяжется с Вами с 9:00 до 21:00 по МСК времени для согласования деталей и получения
-«Лазерная эпиляция бикини + подмышки за 1990₽» и СЮРПРИЗА от Сети клиник лазерной эпиляции «Подружки». Хорошего дня! "{props.title}" и СЮРПРИЗА от Сети клиник лазерной эпиляции "Подружки". Хорошего дня!</span>
-                <Button type="primary"
-                        variant="solid"
-                        color="cyan"
-                        onClick={props.onSuccess}
-                        className="close-modal-button">Выбрать еще 1 подарок</Button>
-            </div> :
-                <div>
+
                     <MyForm offerId={props.id}
                             onSuccess={() =>
                             {

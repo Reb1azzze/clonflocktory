@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/inter": "^5.2.5",
     "antd": "^5.23.3",
     "axios": "^1.7.9",
     "cra-template-typescript": "1.2.0",

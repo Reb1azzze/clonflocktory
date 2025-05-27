@@ -119,7 +119,7 @@ const MyList: React.FC = () => {
                 <div className="progress-bar">
                     <div className={'flex-title-value-progress'}>
                         <div className="progress-bar-title">
-                            Времени Осталось
+                            Времени осталось:
                         </div>
                         <Countdown
                             value={deadline}

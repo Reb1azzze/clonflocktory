@@ -4,7 +4,7 @@
     align-items: center;
     justify-items: center;
     cursor: pointer;
-    padding: 10px;
+    padding: 17px 10px 17px 10px;
     background: #ffffff;
     min-width: 70dvw;
     border-radius: 20px;
@@ -23,9 +23,9 @@
 }
 
 .title {
-    font-size: 37px;
+    font-size: 31px;
     width: 100%;
-
+    font-weight: 400;
     @media screen and (max-width: 768px) {
         max-height: 74px;
         font-size: 15px;
@@ -43,11 +43,11 @@
 }
 
 .company-png {
-    max-height: 131px;
+    max-height: 98px;
     border-radius: 20px;
     block-size: fit-content;
-    padding-right: 72px;
-    padding-left: 72px;
+    padding-right: 75px;
+    padding-left: 70px;
 
     @media screen and (max-width: 768px) {
         max-height: 74px;
@@ -70,7 +70,8 @@
 }
 
 .present-png {
-    max-height: 140px;
+    max-height: 110px;
+    padding-right: 100px;
     @media screen and (max-width: 350px) {
         max-width: 70px;
     }
