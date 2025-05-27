@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import WheelPng from '../../assets/png/Wheel svg.png';
-import ArrowPng from '../../assets/png/spinner icon new.png';
+import ArrowPng from '../../assets/png/arrow shadow.png';
 import { useNavigate } from "react-router-dom";
 import {Button} from "antd";
 import './Wheel.sass'
