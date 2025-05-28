@@ -7,8 +7,8 @@
     background-size: cover;
     height: 19.5dvw;
     @media screen and (max-width: 768px) {
-        height: 63dvw;
-        background: url("../../assets/png/mobile-background.png");
+        height: 46dvw;
+        background: url("../../assets/png/final-mobile-banner.png");
         background-size: cover;
     }
 }
@@ -30,7 +30,8 @@
     color: #38089B;
     @media screen and (max-width: 768px) {
         font-size: 22px;
-        padding-top: 47px;
+        padding-top: 34px;
+        padding-bottom: 14px;
         text-align: center;
     }
 }
@@ -55,6 +56,9 @@
     flex-direction: column;
     justify-content: center;
     background: #FFFFFF;
+    @media screen and (max-width: 768px) {
+        padding: 15px 20px;
+    }
 }
 
 .flex-title-value-progress {
@@ -69,6 +73,10 @@
     font-size: 27px;
     font-weight: 500;
     color: #38089B;
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+        font-weight: 400;
+    }
 }
 
 .countdown-timer .ant-statistic-content-value {
@@ -77,6 +85,9 @@
     font-size: 46px !important;
     line-height: 1;
     font-weight: 600;
+    @media screen and (max-width: 768px) {
+        font-size: 32px !important;
+    }
 }
 /*
 Анимация перехода цвета
@@ -128,6 +139,9 @@
     align-items: center;
     height: 25dvh;
     background: #444444;
+    @media screen and (max-width: 768px) {
+        height: 15dvh;
+    }
 }
 
 .link-footer {
@@ -161,6 +175,11 @@
     font-size: 29px;
     z-index: 1000;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 0;
+    }
 }
 
 .cookie-banner button {
@@ -175,6 +194,12 @@
     width: 107px !important;
     font-weight: 700;
     transition: background-color 0.2s;
+    @media screen and (max-width: 768px) {
+        height: 27px !important;
+        font-size: 18px;
+        width: 53px !important;
+        border-radius: 6px;
+    }
 }
 
 .cookie-banner button:hover {

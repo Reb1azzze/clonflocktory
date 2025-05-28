@@ -8,7 +8,7 @@
     transition: height 250ms;
     font-family: Inter;
     @media screen and (max-width: 768px) {
-        padding: 32px 13px;
+        padding: 46px 13px 2px 13px;
     }
 }
 
@@ -26,13 +26,12 @@ border antd
     margin-top: 40px;
     margin-bottom: 60px;
     max-height: 95px;
-    @media screen and (max-width: 500px) {
-        max-width: 300px;
+    @media screen and (max-width: 768px) {
+        max-width: 233px;
+        margin-top: 0;
+        margin-bottom: 40px;
     }
 
-    @media screen and (max-width: 350px) {
-        max-width: 250px;
-    }
 }
 
 .card-text {
@@ -42,9 +41,9 @@ border antd
     color: #38089B;
     @media screen and (max-width: 768px) {
         font-size: 25px;
-        margin-top: 40px;
         font-weight: 400;
         line-height: 100%;
+        color: black;
     }
 }
 
@@ -54,8 +53,9 @@ border antd
     margin-top: 16px;
     line-height: 26px;
     @media screen and (max-width: 768px) {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: 20px;
+        line-height: 17px;
     }
 }
 
@@ -63,8 +63,10 @@ border antd
     color : #b6b8b8 !important;
     font-size: 12px !important;
     margin-bottom: 25px;
+    font-family: Inter;
     @media screen and (max-width: 500px) {
-        font-size: 0.8em;
+        font-size: 8px !important;
+        line-height: 13px;
     }
 }
 
@@ -80,7 +82,8 @@ border antd
     cursor: pointer;
     color: #38089B;
     @media screen and (max-width: 768px) {
-        font-size: 10px;
+        font-size: 12px;
+        margin-top: 10px;
     }
 }
 
@@ -96,7 +99,7 @@ border antd
         font-size: 1em;
     }
     @media screen and (max-width: 768px) {
-        margin-bottom: 30px;
+        margin-bottom: 23px;
     }
 }
 /*
@@ -136,12 +139,23 @@ less margin on antd form inputs
 .success-text {
     font-size: 20px;
     font-weight: 400;
+    @media screen and (max-width: 768px) {
+        font-size: 13px;
+        line-height: 17px;
+        font-weight: 400;
+    }
 }
 
 .good-day {
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 15px;
+    @media screen and (max-width: 768px) {
+        font-size: 13px;
+        line-height: 17px;
+        font-weight: 700;
+        margin-bottom: 0px;
+    }
 }
 
 .close-modal-button {
@@ -152,9 +166,12 @@ less margin on antd form inputs
     padding: 20px;
     border-radius: 24px;
     font-weight: 600;
+    border: none;
 
     @media screen and (max-width: 768px) {
         height: 57px !important;
         font-size: 23px;
+        border-radius: 10px;
+        margin-bottom: 16px;
     }
 }
