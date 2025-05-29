@@ -4,18 +4,20 @@
     align-items: center;
     justify-items: center;
     cursor: pointer;
-    padding: 17px 10px 17px 10px;
+    padding: 17px 0;
     background: #ffffff;
-    min-width: 70dvw;
+    min-width: 64dvw;
     border-radius: 20px;
     width: 100%;
     transition: .2s;
-    font-family: Inter, sans-serif;
+    font-family: Inter;
     font-weight: 500;
-    gap: 5px;
+    gap: 11px;
     vertical-align: middle;
     @media screen and (max-width: 768px) {
-        padding: 11px 30px 11px 12px;
+        padding: 11px 30px 11px 11px;
+        border-radius: 15px;
+        gap: 21px;
     }
 }
 
@@ -26,13 +28,13 @@
 }
 
 .title {
-    font-size: 31px;
-    width: 100%;
+    font-size: 26px;
+    width: 40dvw;
     font-weight: 400;
     @media screen and (max-width: 768px) {
-        line-height: 21px;
+        line-height: 19px;
         max-height: 74px;
-        font-size: 15px;
+        font-size: 14px;
         width: 198px;
         font-weight: 500;
     }
@@ -55,7 +57,7 @@
     padding-left: 70px;
 
     @media screen and (max-width: 768px) {
-        max-height: 74px;
+        max-height: 75px;
         width: 101px;
         padding-right: 0;
         padding-left: 0;
@@ -76,7 +78,8 @@
 
 .present-png {
     max-height: 110px;
-    padding-right: 100px;
+    padding-right: 41px;
+    padding-left: 35px;
     @media screen and (max-width: 350px) {
         max-width: 70px;
     }

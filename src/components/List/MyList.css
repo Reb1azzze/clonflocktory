@@ -7,16 +7,16 @@
     background-size: cover;
     height: 19.5dvw;
     @media screen and (max-width: 768px) {
-        height: 46dvw;
-        background: url("../../assets/png/final-mobile-banner.png");
+        height: 40dvw;
+        background: url("../../assets/png/banner-small-mob.png");
         background-size: cover;
     }
 }
 
 .list-component {
     background: #CBFF52;
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 17.7dvw;
+    padding-right: 16.9dvw;
     @media screen and (max-width: 768px) {
         padding-left: 20px;
         padding-right: 20px;
@@ -26,12 +26,14 @@
 .list-title {
     font-size: 36px;
     font-weight: 600;
-    padding: 60px 0 35px 7px;
+    padding: 60px 0 35px 0;
     color: #38089B;
+    letter-spacing: 1px;
     @media screen and (max-width: 768px) {
         font-size: 22px;
-        padding-top: 34px;
+        padding-top: 35px;
         padding-bottom: 14px;
+        letter-spacing: 0.3px;
         text-align: center;
     }
 }
@@ -57,7 +59,7 @@
     justify-content: center;
     background: #FFFFFF;
     @media screen and (max-width: 768px) {
-        padding: 15px 20px;
+        padding: 12px 20px 32px 20px;
     }
 }
 
@@ -99,9 +101,20 @@
 .custom-progress .ant-progress-line {
     transition: background-color 0.5s ease;
 }
-
+/*высота бара на мобилке*/
 .custom-progress .ant-progress-inner {
     transition: background-color 0.5s ease;
+    @media screen and (max-width: 768px) {
+        height: 4px !important;
+    }
+
+}
+
+.ant-progress {
+    @media screen and (max-width: 768px) {
+        height: 0 !important;
+        margin-top: -6px;
+    }
 }
 
 .ant-statistic-content {
@@ -145,10 +158,10 @@
 }
 
 .link-footer {
-    font-size: 43px;
+    font-size: 30px;
     text-decoration: none;
     transition: color 0.5s;
-    font-weight: 500;
+    font-weight: 400;
     color: white;
 
     @media screen and (max-width: 768px) {
@@ -177,8 +190,10 @@
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     @media screen and (max-width: 768px) {
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 200;
+        letter-spacing: 0.3px;
         padding: 8px 0;
+        gap: 18px;
     }
 }
 
