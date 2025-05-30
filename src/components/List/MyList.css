@@ -150,10 +150,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 25dvh;
+    height: 156px;
     background: #444444;
     @media screen and (max-width: 768px) {
-        height: 15dvh;
+        height: 80px;
     }
 }
 
