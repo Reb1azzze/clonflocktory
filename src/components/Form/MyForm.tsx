@@ -7,13 +7,13 @@ import UserFilled from "../../assets/svg/UserFilled";
 import PhoneFilled from "../../assets/svg/PhoneFilled";
 import Cookies from "js-cookie";
 import "./MyForm.css";
-
+import { ICardProps } from '../Card/Card';
 interface MyFormProps {
-    offerId: number;
+    offer: ICardProps;
     onSuccess: () => void;
 }
 
-const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
+const MyForm: React.FC<MyFormProps> = ({ offer, onSuccess }) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [form] = Form.useForm();
@@ -24,7 +24,7 @@ const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
             await PostSubmit({
                 name: values.name,
                 phone: values.phone.replace(/\D/g, "").substring(0,11),
-                offer_id: offerId,
+                offer_id: offer.id,
                 ref: window.location.href,
                 uuid: Cookies.get("vid") || ""
             });
@@ -107,7 +107,7 @@ const MyForm: React.FC<MyFormProps> = ({ offerId, onSuccess }) => {
                         />}
                 </ReactInputMask>
             </Form.Item>
-            <div className='card-politics'>Нажимая «Забрать подарок», я принимаю условия <a className='card-link' href={'https://docs.clickwise.promo/privacy.pdf'}> политики конфиденциальности </a>и <a className='card-link' href={'https://docs.clickwise.promo/podruge/public-oferta.pdf'}>публичной оферты</a> ООО «НЕОБЬЮТИТЕХ» и ООО «Сеть клиник Подружки», а также соглашаюсь на обработку персональных данных и получение рекламных рассылок.</div>
+            <div className='card-politics' dangerouslySetInnerHTML={{ __html: offer.privacy }}></div>
             <Form.Item label={null}>
                 <Button
                     disabled={!isValid}

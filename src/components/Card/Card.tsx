@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import "./Card.css"
 
 
-interface ICardProps {
+export interface ICardProps {
     title: string;
     description: string;
     description_short: string;
@@ -52,7 +52,7 @@ const Card = (props: ICardProps) => {
                 {props.description}
             </div>
 
-                    <MyForm offerId={props.id}
+                    <MyForm offer={props}
                             onSuccess={() =>
                             {
                                 setSuccess(true);
