@@ -15,10 +15,10 @@
     width: 100%;
     height: 82px;
     font-size: 33px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: Inter;
-    color: #38089B !important;
-    background: #BFFF29 !important;
+    color: #fff ;
+    background: #0095AE;
     border-radius: 19px !important;
     border: none;
     @media screen and (max-width: 768px) {
@@ -30,15 +30,16 @@
 
 .form-button:disabled {
     background: #EEEEEE !important;
+    color: #042425;
 }
 
 /* Для кстомной подсветки success
 */
 .ant-form-item-has-success .ant-input-affix-wrapper {
-    border: 1px solid #89C203 !important;
+    border: 1px solid #0095AE !important;
 }
 
 .ant-form-item-has-success .ant-input-suffix svg {
-    color: #89C203 !important;
-    fill: #89C203 !important;
+    color: #0095AE !important;
+    fill: #0095AE !important;
 }

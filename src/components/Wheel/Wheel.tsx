@@ -23,7 +23,7 @@ const Wheel = () => {
                 <img className='wheelpng' src={WheelPng} alt='d'/>
                 {isRotated ?
                     <div className='wheel-text-block'>
-                        <div className='wheel-text'>Вам доступно 8 подарков</div>
+                        <div className='wheel-text'>Вам доступно <strong>8</strong> подарков</div>
                         <Button variant="solid" color='cyan' className='wheel-button' onClick={handleOk}>Выбрать</Button>
                     </div> :
                     <div className='wheel-text-block'>

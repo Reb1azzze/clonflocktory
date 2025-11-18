@@ -33,7 +33,7 @@ const Card = (props: ICardProps) => {
                     <span className='good-day'>Хорошего дня!</span>
                     <Button type="primary"
                             variant="solid"
-                            color="cyan"
+                            color={undefined}
                             onClick={props.onSuccess}
                             className="close-modal-button">Выбрать еще 1 подарок</Button>
                 </div> :

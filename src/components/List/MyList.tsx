@@ -119,7 +119,7 @@ const MyList: React.FC = () => {
                 <div className="progress-bar">
                     <div className={'flex-title-value-progress'}>
                         <div className="progress-bar-title">
-                            Времени осталось:
+                            Времени осталось
                         </div>
                         <Countdown
                             value={deadline}
@@ -132,8 +132,8 @@ const MyList: React.FC = () => {
                         className={'custom-progress'}
                         showInfo={false}
                         percent={+((time / fiveMin) * 99).toFixed(0)}
-                        strokeColor={time > 150000 ? '#8056D5' : '#FF4141'}
-                        trailColor={time > 150000 ? '#DFB1FF' : '#FFACAC'}
+                        strokeColor={time > 150000 ? '#0095AE' : '#0095AE'}
+                        trailColor={time > 150000 ? '#9CD5DF' : '#9CD5DF'}
                     />
                 </div>
             <div className='list-component'>

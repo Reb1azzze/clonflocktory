@@ -114,7 +114,7 @@ const MyForm: React.FC<MyFormProps> = ({ offer, onSuccess }) => {
                     className="form-button"
                     type="primary"
                     variant="solid"
-                    color="cyan"
+                    color={undefined}
                     htmlType="submit"
                 >
                     Забрать подарок
